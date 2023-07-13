@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="hiber">
+        <properties>
+            <property name = "hibernate.connection.driver_class" value = "org.postgresql.Driver"/>
+            <property name = "hibernate.connection.url" value = "jdbc:postgresql://localhost:7777/hiber"/>
+            <property name = "hibernate.connection.username" value = "postgres"/>
+            <property name = "hibernate.connection.password" value = "drakon0409" />
+            <property name = "hibernate.hbm2ddl.auto" value = "create" />
+            <property name = "hibernate.show_sql" value = "true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
