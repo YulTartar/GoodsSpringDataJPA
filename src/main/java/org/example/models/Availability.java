@@ -1,20 +1,29 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "availability")
 public class Availability {
 
-    private final int goodsId;
-    private final int shopTd;
-    private final int storageTd;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_goods", referencedColumnName = "id", nullable=false)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Goods goods;
 
-    public Availability(int  goodsId, int shopTd, int storageId){
-        this.goodsId = Goods.id;
-        this.shopTd = Shop.id;
-        this.storageTd = Storage.id;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_place", referencedColumnName = "id", nullable=false)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Place place;
+
+    @Id
+    @Column(name = "id")
+    private final int availabilityId;
+
+    public Availability(int availabilityId, Goods goods, Place place){
+        this.availabilityId = availabilityId;
+        this.goods = goods;
+        this.place = place;
     }
 }

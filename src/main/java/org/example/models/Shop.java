@@ -14,7 +14,7 @@ public class Shop extends Place {
         MEGA,
         DISPENSER,
         DELIVERY_POINT,
-    }
+    } // исправить, чтобы можно было отправлять и получать string
 
     @Column(name = "level")
     private Levels level;
