@@ -20,9 +20,6 @@ public class GoodsServiceImpl implements GoodsService<Integer> {
     private GoodsRepository goodsRepository;
 
     @Autowired
-    private PlaceRepository placeRepository;
-
-    @Autowired
     private ModelMapper modelMapper;
 
     @Override
