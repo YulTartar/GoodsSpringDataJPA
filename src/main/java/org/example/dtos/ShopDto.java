@@ -1,28 +1,18 @@
-package org.example.models;
+package org.example.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "shops")
-public class Shop extends Place {
+public class ShopDto extends PlaceDto {
     private final static String type = "SHOP";
 
-    @Column(name = "level")
     private String level;
-
-    @Column(name = "rating")
     private int rating;
 
-    public Shop(String name, String address, int capacity, int employees, int space, String level, int rating){
+    public ShopDto(String name, String address, int capacity, int employees, int space, String level, int rating){
         super(type, name, address, capacity, space, employees);
         this.level = level;
         this.rating = rating;
-
     }
 
-    public Shop() {
-        super();
-    }
+    public ShopDto() {}
 
     public String getLevel() {
         return level;

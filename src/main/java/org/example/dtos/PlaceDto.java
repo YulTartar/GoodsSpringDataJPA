@@ -1,28 +1,17 @@
-package org.example.models;
+package org.example.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Place extends BaseEntity {
-
-    @Column(name = "type", length = 16, nullable = false)
+public abstract class PlaceDto extends BaseEntityDto {
     private String type;
-    @Column(name = "name", length = 255, nullable = false)
     protected String name;
-    @Column(name = "address", length = 255)
     protected String address;
-    @Column(name = "capacity", nullable = false)
     protected int capacity;
-    @Column(name = "employees", length = 255)
     protected int employees;
-    @Column(name = "space", length = 255)
     protected int space;
 
-    protected Place() {
+    protected PlaceDto() {
     }
 
-    protected Place(String type, String name, String address, int capacity, int employees, int space) {
+    public PlaceDto(String type, String name, String address, int capacity, int employees, int space) {
         this.type = type;
         this.name = name;
         this.address = address;

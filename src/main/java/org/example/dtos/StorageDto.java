@@ -1,26 +1,18 @@
-package org.example.models;
+package org.example.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "storages")
-public class Storage extends Place {
+public class StorageDto extends PlaceDto {
     private final static String type = "STORAGE";
 
-    @Column(name = "cars", length = 255)
     private int numberOfCars;
-    @Column(name = "mechanization")
     private int mechanization;
 
-    public Storage(String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization){
+    public StorageDto(String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization){
         super(type, name, address, capacity, space, employees);
         this.numberOfCars = numberOfCars;
         this.mechanization = mechanization;
     }
 
-    public Storage() {
-        super();
-    }
+    public StorageDto() {}
 
     public int getNunberOfCars() {
         return numberOfCars;

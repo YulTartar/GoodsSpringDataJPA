@@ -5,7 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "availability")
-public class Availability {
+public class Availability extends BaseEntity {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_goods", referencedColumnName = "id", nullable=false)
@@ -17,13 +17,13 @@ public class Availability {
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Place place;
 
-    @Id
-    @Column(name = "id")
-    private final int availabilityId;
-
-    public Availability(int availabilityId, Goods goods, Place place){
-        this.availabilityId = availabilityId;
+    public Availability(Goods goods, Place place){
         this.goods = goods;
         this.place = place;
+    }
+
+    @Override
+    public String toString() {
+        return "Availability { id=" + id + ", goods=" + goods + ", place=" + place + " }";
     }
 }

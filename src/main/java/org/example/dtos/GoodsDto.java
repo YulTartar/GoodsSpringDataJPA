@@ -1,32 +1,15 @@
-package org.example.models;
+package org.example.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "goods")
-public class Goods extends BaseEntity {
-    @Column(name = "name", length = 255, nullable = false)
+public class GoodsDto extends BaseEntityDto {
     private String name;
-
-    @Column(name = "description", length = 255)
     private String description;
-
-    @Column(name = "OKPD")
     private String OKPD;
-
-    @Column(name = "OKVED")
     private String OKVED;
-
-    @Column(name = "type_barcode", length = 255)
     private String typeBarcode;
-
-    @Column(name = "barcode", length = 20)
     private String barcode;
-
-    @Column(name = "shelf_life", length = 255)
     private int shelfLife;
 
-    public Goods(String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife){
+    public GoodsDto(String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife){
         this.name = name;
         this.description = description;
         this.OKPD = OKPD;
@@ -36,7 +19,7 @@ public class Goods extends BaseEntity {
         this.shelfLife = shelfLife;
     }
 
-    public Goods() {}
+    public GoodsDto() {}
 
     public String getName() {
         return name;
