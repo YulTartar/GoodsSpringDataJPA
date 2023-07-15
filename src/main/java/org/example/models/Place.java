@@ -5,9 +5,8 @@ import jakarta.persistence.*;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Place extends BaseEntity {
-
-    @Column(name = "type", length = 16, nullable = false)
-    private String type;
+    @Column(name = "type", length = 16)
+    protected String type;
     @Column(name = "name", length = 255, nullable = false)
     protected String name;
     @Column(name = "address", length = 255)
@@ -29,14 +28,6 @@ public abstract class Place extends BaseEntity {
         this.capacity = capacity;
         this.employees = employees;
         this.space = space;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getName() {

@@ -17,7 +17,6 @@ public class Shop extends Place {
         super(type, name, address, capacity, space, employees);
         this.level = level;
         this.rating = rating;
-
     }
 
     public Shop() {
