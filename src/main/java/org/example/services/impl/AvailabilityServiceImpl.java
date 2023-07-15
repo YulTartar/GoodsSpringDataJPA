@@ -1,14 +1,9 @@
 package org.example.services.impl;
 
 import org.example.dtos.AvailabilityDto;
-import org.example.dtos.GoodsDto;
 import org.example.models.Availability;
-import org.example.models.Goods;
 import org.example.repositories.AvailabilityRepository;
-import org.example.repositories.GoodsRepository;
-import org.example.repositories.PlaceRepository;
 import org.example.services.AvailabilityService;
-import org.example.services.GoodsService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +24,6 @@ public class AvailabilityServiceImpl implements AvailabilityService<Integer> {
     @Override
     public AvailabilityDto register(AvailabilityDto availability) {
         Availability g = modelMapper.map(availability, Availability.class);
-
         return modelMapper.map(availabilityRepository.save(g), AvailabilityDto.class);
     }
 
