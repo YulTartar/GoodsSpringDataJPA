@@ -1,6 +1,6 @@
 package org.example.dtos;
 
-public abstract class PlaceDto extends BaseEntityDto {
+public class PlaceDto extends BaseEntityDto {
 
     protected String type;
     protected String name;
@@ -9,7 +9,7 @@ public abstract class PlaceDto extends BaseEntityDto {
     protected int employees;
     protected int space;
 
-    protected PlaceDto() {
+    public PlaceDto() {
     }
 
     protected PlaceDto(String type, String name, String address, int capacity, int employees, int space) {

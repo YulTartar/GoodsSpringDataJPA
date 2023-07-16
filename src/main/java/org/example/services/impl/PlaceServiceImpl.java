@@ -1,7 +1,9 @@
 package org.example.services.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.example.dtos.GoodsDto;
 import org.example.dtos.PlaceDto;
+import org.example.dtos.ShopDto;
 import org.example.models.Goods;
 import org.example.models.Place;
 import org.example.repositories.GoodsRepository;

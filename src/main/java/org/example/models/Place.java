@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Place extends BaseEntity {
+public class Place extends BaseEntity {
     @Column(name = "type", length = 16)
     protected String type;
     @Column(name = "name", length = 255, nullable = false)

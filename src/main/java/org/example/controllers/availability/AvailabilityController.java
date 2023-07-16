@@ -15,10 +15,10 @@ public class AvailabilityController {
     Iterable<AvailabilityDto> all() {
         return availabilityService.getAll();
     }
-
+    /*
     @PostMapping("/availability")
     AvailabilityDto newavailability(@RequestBody AvailabilityDto newAvailability) {  return availabilityService.register(newAvailability); }
-
+    */
     @GetMapping("/availability/{id}")
     AvailabilityDto one(@PathVariable Integer id) throws Throwable {
 

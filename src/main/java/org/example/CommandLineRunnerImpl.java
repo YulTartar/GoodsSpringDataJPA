@@ -1,11 +1,10 @@
 package org.example;
 
+import org.example.dtos.AvailabilityDto;
 import org.example.dtos.GoodsDto;
 import org.example.dtos.ShopDto;
 import org.example.dtos.StorageDto;
-import org.example.services.GoodsService;
-import org.example.services.StorageService;
-import org.example.services.ShopService;
+import org.example.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,12 +19,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private StorageService storageService;
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private PlaceService placeService;
+    @Autowired
+    private AvailabilityService availabilityService;
 
     @Override
     public void run(String... args) throws Exception {
         saveData();
-        System.out.println(shopService.getAll());
-        System.out.println(shopService.findShop(1));
+        // System.out.println(shopService.getAll());
+        // System.out.println(shopService.findShop(1));
     }
 
     private void saveData() throws IOException {
@@ -54,5 +57,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         shopService.register(fourthShop);
         storageService.register(fourthStorage);
         goodsService.register(fourthGoods);
+        availabilityService.register(1, 1);
     }
 }

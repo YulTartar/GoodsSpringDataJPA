@@ -25,7 +25,6 @@ public class GoodsServiceImpl implements GoodsService<Integer> {
     @Override
     public GoodsDto register(GoodsDto goods) {
         Goods g = modelMapper.map(goods, Goods.class);
-
         return modelMapper.map(goodsRepository.save(g), GoodsDto.class);
     }
 
