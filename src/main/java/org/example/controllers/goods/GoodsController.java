@@ -22,8 +22,7 @@ public class GoodsController {
     @GetMapping("/goods/{id}")
     GoodsDto one(@PathVariable Integer id) throws Throwable {
 
-        return (GoodsDto) goodsService.findGoods(id)
-                .orElseThrow(() -> new GoodsNotFoundException(id));
+        return null;
     }
 
     @DeleteMapping("/goods/{id}")

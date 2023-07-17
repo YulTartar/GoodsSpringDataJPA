@@ -9,7 +9,9 @@ public class GoodsDto extends BaseEntityDto {
     private String barcode;
     private int shelfLife;
 
-    public GoodsDto(String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife){
+
+    public GoodsDto(int id, String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife) {
+        super(id);
         this.name = name;
         this.description = description;
         this.OKPD = OKPD;

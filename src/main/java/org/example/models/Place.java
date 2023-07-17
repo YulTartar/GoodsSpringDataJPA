@@ -6,7 +6,12 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Place extends BaseEntity {
+public class Place {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    protected int id;
     @Column(name = "type", length = 16)
     protected String type;
     @Column(name = "name", length = 255, nullable = false)
@@ -26,13 +31,15 @@ public class Place extends BaseEntity {
     protected Place() {
     }
 
-    protected Place(String type, String name, String address, int capacity, int employees, int space) {
+    public Place(int id, String type, String name, String address, int capacity, int employees, int space) {
+        this.id = id;
         this.type = type;
         this.name = name;
         this.address = address;
         this.capacity = capacity;
         this.employees = employees;
         this.space = space;
+
     }
 
     public String getName() {

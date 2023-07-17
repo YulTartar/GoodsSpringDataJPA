@@ -12,7 +12,8 @@ public class PlaceDto extends BaseEntityDto {
     public PlaceDto() {
     }
 
-    protected PlaceDto(String type, String name, String address, int capacity, int employees, int space) {
+    public PlaceDto(int id, String type, String name, String address, int capacity, int employees, int space) {
+        super(id);
         this.type = type;
         this.name = name;
         this.address = address;

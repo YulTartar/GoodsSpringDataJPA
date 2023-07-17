@@ -9,9 +9,18 @@ public abstract class BaseEntity {
     @Column(name = "id")
     protected int id;
 
+    public BaseEntity(int id) {
+        this.id = id;
+    }
+
+    public BaseEntity() {
+    }
+
     public int getId() {
         return id;
     }
+
+
 
     protected void setId(int id) {
         this.id = id;

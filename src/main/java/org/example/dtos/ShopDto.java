@@ -6,8 +6,8 @@ public class ShopDto extends PlaceDto {
     private String level;
     private int rating;
 
-    public ShopDto(String name, String address, int capacity, int employees, int space, String level, int rating){
-        super(type, name, address, capacity, space, employees);
+    public ShopDto(int id, String type, String name, String address, int capacity, int employees, int space, String level, int rating) {
+        super(id, type, name, address, capacity, employees, space);
         this.level = level;
         this.rating = rating;
     }

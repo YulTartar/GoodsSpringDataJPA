@@ -38,8 +38,8 @@ public class ShopServiceImpl implements ShopService<Integer> {
     }
 
     @Override
-    public Optional<ShopDto> findShop(Integer id) {
-        return Optional.ofNullable(modelMapper.map(shopRepository.findById(id), ShopDto.class));
+    public ShopDto findShop(Integer id) {
+        return modelMapper.map(shopRepository.findById(id).orElseThrow(), ShopDto.class);
     }
 
     @Override

@@ -22,8 +22,7 @@ public class ShopController {
     @GetMapping("/shop/{id}")
     ShopDto one(@PathVariable Integer id) throws Throwable {
 
-        return (ShopDto) shopService.findShop(id)
-                .orElseThrow(() -> new ShopNotFoundException(id));
+        return null;
     }
 
     @DeleteMapping("/shop/{id}")

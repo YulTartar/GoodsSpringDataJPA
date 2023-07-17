@@ -39,8 +39,8 @@ public class GoodsServiceImpl implements GoodsService<Integer> {
     }
 
     @Override
-    public Optional<GoodsDto> findGoods(Integer id) {
-        return Optional.ofNullable(modelMapper.map(goodsRepository.findById(id), GoodsDto.class));
+    public GoodsDto findGoods(Integer id) {
+        return modelMapper.map(goodsRepository.findById(id).orElseThrow(), GoodsDto.class);
     }
 
      /*@Override

@@ -10,4 +10,11 @@ public abstract class BaseEntityDto {
     protected void setId(int id) {
         this.id = id;
     }
+
+    public BaseEntityDto() {
+    }
+
+    public BaseEntityDto(int id) {
+        this.id = id;
+    }
 }

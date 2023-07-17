@@ -13,7 +13,7 @@ public interface GoodsService<ID> {
     void expel(GoodsDto goods);
 
     void expel(ID id);
-    Optional<GoodsDto> findGoods(ID id);
+    GoodsDto findGoods(ID id);
 
     // GoodsDto findAvailabilityByGoodsName(String goodsName);
 

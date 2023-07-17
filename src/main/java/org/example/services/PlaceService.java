@@ -14,7 +14,7 @@ public interface PlaceService<ID> {
 
     void expel(ID id);
 
-    Optional<PlaceDto> findPlace(ID id);
+    PlaceDto findPlace(ID id);
 
     List<PlaceDto> getAll();
 

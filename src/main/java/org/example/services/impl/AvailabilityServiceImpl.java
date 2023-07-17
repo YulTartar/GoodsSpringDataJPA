@@ -35,30 +35,8 @@ public class AvailabilityServiceImpl implements AvailabilityService<Integer> {
     */
     @Override
     public AvailabilityDto register(AvailabilityDto availability) {
-        Goods g = modelMapper.map(availability.getGoodsDto(), Goods.class);
-        System.out.println(g);
-        Place p = modelMapper.map(availability.getPlaceDto(), Place.class);
-        System.out.println(p);
-        Availability a = new Availability(g, p, availability.getCount());
-        /*
-        Availability a = null;
-        if (goodsService.findGoods(idGoods) != null && placeService.findPlace(idPlace) != null) {
-            Optional<GoodsDto> optionalGoodsDto = goodsService.findGoods(idGoods);
-            GoodsDto goodsDto = optionalGoodsDto.get();
-            Optional<PlaceDto> optionalPlaceDto = placeService.findPlace(idPlace);
-            PlaceDto placeDto = optionalPlaceDto.get();
-            AvailabilityDto availabilityDto = new AvailabilityDto(goodsDto, placeDto);
-            System.out.println(availabilityDto);
-            a = modelMapper.map(availabilityDto, Availability.class);
-        } else {
-            ;
-            // throw new RuntimeException("Unsuccessful object creation class Availability.");
-        }
-
-         */
-
-        availabilityRepository.save(a);
-        return availability;
+        Availability g = modelMapper.map(availability, Availability.class);
+        return modelMapper.map(availabilityRepository.save(g), AvailabilityDto.class);
     }
 
     @Override

@@ -2,6 +2,8 @@ package org.example.models;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "shops")
 public class Shop extends Place {
@@ -13,8 +15,8 @@ public class Shop extends Place {
     @Column(name = "rating")
     private int rating;
 
-    public Shop(String name, String address, int capacity, int employees, int space, String level, int rating){
-        super(type, name, address, capacity, space, employees);
+    public Shop(int id, String type, String name, String address, int capacity, int employees, int space, String level, int rating) {
+        super(id, type, name, address, capacity, employees, space);
         this.level = level;
         this.rating = rating;
     }

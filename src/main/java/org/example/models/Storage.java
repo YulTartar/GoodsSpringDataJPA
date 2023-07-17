@@ -12,8 +12,8 @@ public class Storage extends Place {
     @Column(name = "mechanization")
     private int mechanization;
 
-    public Storage(String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization){
-        super(type, name, address, capacity, space, employees);
+    public Storage(int id, String type, String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization) {
+        super(id, type, name, address, capacity, employees, space);
         this.numberOfCars = numberOfCars;
         this.mechanization = mechanization;
     }

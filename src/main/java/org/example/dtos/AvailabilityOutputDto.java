@@ -1,37 +1,41 @@
 package org.example.dtos;
 
-import java.util.Optional;
-
-public class AvailabilityDto extends BaseEntityDto {
-    GoodsDto goodsDto;
-    PlaceDto placeDto;
+public class AvailabilityOutputDto {
+    int id;
+    int goodsDto;
+    int placeDto;
     int count;
 
-    public AvailabilityDto(int id, GoodsDto goodsDto, PlaceDto placeDto, int count) {
-        super(id);
+    public AvailabilityOutputDto(int id, int goodsDto, int placeDto, int count){
+        this.id = id;
         this.goodsDto = goodsDto;
         this.placeDto = placeDto;
         this.count = count;
     }
 
+    public AvailabilityOutputDto() {}
 
-    public AvailabilityDto(){
-
+    public int getId() {
+        return id;
     }
 
-    public GoodsDto getGoodsDto() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getGoodsDto() {
         return goodsDto;
     }
 
-    public void setGoodsDto(GoodsDto goodsDto) {
+    public void setGoodsDto(int goodsDto) {
         this.goodsDto = goodsDto;
     }
 
-    public PlaceDto getPlaceDto() {
+    public int getPlaceDto() {
         return placeDto;
     }
 
-    public void setPlaceDto(PlaceDto placeDto) {
+    public void setPlaceDto(int placeDto) {
         this.placeDto = placeDto;
     }
 

@@ -6,8 +6,8 @@ public class StorageDto extends PlaceDto {
     private int numberOfCars;
     private int mechanization;
 
-    public StorageDto(String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization){
-        super(type, name, address, capacity, space, employees);
+    public StorageDto(int id, String type, String name, String address, int capacity, int employees, int space, int numberOfCars, int mechanization) {
+        super(id, type, name, address, capacity, employees, space);
         this.numberOfCars = numberOfCars;
         this.mechanization = mechanization;
     }

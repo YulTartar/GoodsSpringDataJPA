@@ -44,8 +44,8 @@ public class PlaceServiceImpl implements PlaceService<Integer> {
     }
 
     @Override
-    public Optional<PlaceDto> findPlace(Integer id) {
-        return Optional.ofNullable(modelMapper.map(placeRepository.findById(id), PlaceDto.class));
+    public PlaceDto findPlace(Integer id) {
+        return modelMapper.map(placeRepository.findById(id).orElseThrow(), PlaceDto.class);
     }
 
     @Override

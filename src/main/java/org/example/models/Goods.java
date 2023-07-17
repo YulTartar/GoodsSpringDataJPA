@@ -6,7 +6,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "goods")
-public class Goods extends BaseEntity {
+public class Goods {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    protected int id;
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
@@ -31,7 +35,8 @@ public class Goods extends BaseEntity {
     @OneToMany(mappedBy = "goods")
     Set<Availability> availabilities;
 
-    public Goods(String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife){
+    public Goods(int id, String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife, Set<Availability> availabilities) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.OKPD = OKPD;
@@ -39,8 +44,8 @@ public class Goods extends BaseEntity {
         this.typeBarcode = typeBarcode;
         this.barcode = barcode;
         this.shelfLife = shelfLife;
+        this.availabilities = availabilities;
     }
-
 
     public Goods() {}
 
