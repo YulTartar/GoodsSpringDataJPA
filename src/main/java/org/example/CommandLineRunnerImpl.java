@@ -1,15 +1,13 @@
 package org.example;
 
-import org.example.dtos.AvailabilityDto;
-import org.example.dtos.GoodsDto;
-import org.example.dtos.ShopDto;
-import org.example.dtos.StorageDto;
+import org.example.dtos.*;
 import org.example.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -26,15 +24,30 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        saveData();
+        seedData();
         // System.out.println(shopService.getAll());
         // System.out.println(shopService.findShop(1));
         //System.out.println(goodsService.findAvailabilityByGoodsName("Яблоки Голден"));
         // System.out.println(shopService.findShopByAddress("Московская обл., г. Одинцово, ул. Неделина, дом 47"));
         //System.out.println(storageService.findStorageNameByCapasity(5000));
+        addNewAvailability();
     }
 
-    private void saveData() throws IOException {
+    private void addNewAvailability() throws IOException {
+        Optional<GoodsDto> goodsOptional = goodsService.findGoods(1);
+        Optional<PlaceDto> placeOptional = placeService.findPlace(1);
+
+        if (goodsOptional.isPresent() && placeOptional.isPresent()) {
+            GoodsDto g = goodsOptional.get();
+            PlaceDto p = placeOptional.get();
+            AvailabilityDto avail = new AvailabilityDto(g, p, 5);
+            availabilityService.register(avail);
+        } else {
+            // Обработка случая, если объекты GoodsDto или PlaceDto не найдены
+        }
+    }
+
+    private void seedData() throws IOException {
         //Добавление в БД записей
         ShopDto firstShop = new ShopDto("О'Парк", "Московская обл., г. Одинцово, ул. Неделина, дом 47", 250, 8, 100, "Магазин", 4);
         StorageDto firstStorage = new StorageDto("Большой склад под Москвой", "Московская обл., г. Хырадвинск, ул. Шпатель, дом 3, стр. 1", 5000, 34, 1000, 14, 6);
@@ -60,6 +73,5 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         shopService.register(fourthShop);
         storageService.register(fourthStorage);
         goodsService.register(fourthGoods);
-        availabilityService.register(1, 1);
     }
 }

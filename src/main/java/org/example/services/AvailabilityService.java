@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AvailabilityService<ID> {
-    AvailabilityDto register(int idGoods, int idPlace);
+    AvailabilityDto register(AvailabilityDto availability);
 
     void expel(AvailabilityDto availability);
 

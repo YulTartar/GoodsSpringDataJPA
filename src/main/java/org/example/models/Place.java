@@ -2,6 +2,8 @@ package org.example.models;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Place extends BaseEntity {
@@ -17,6 +19,9 @@ public class Place extends BaseEntity {
     protected int employees;
     @Column(name = "space", length = 255)
     protected int space;
+
+    @OneToMany(mappedBy = "place")
+    Set<Availability> availabilities;
 
     protected Place() {
     }

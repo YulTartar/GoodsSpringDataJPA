@@ -3,15 +3,17 @@ package org.example.dtos;
 import java.util.Optional;
 
 public class AvailabilityDto extends BaseEntityDto {
-    protected GoodsDto goodsDto;
-    protected PlaceDto placeDto;
+    GoodsDto goodsDto;
+    PlaceDto placeDto;
+    int count;
 
-    public AvailabilityDto(GoodsDto goodsDto, PlaceDto placeDto){
+    public AvailabilityDto(GoodsDto goodsDto, PlaceDto placeDto, int count){
         this.goodsDto = goodsDto;
         this.placeDto = placeDto;
+        this.count = count;
     }
 
-    public AvailabilityDto() {;}
+    public AvailabilityDto() {}
 
     public GoodsDto getGoodsDto() {
         return goodsDto;
@@ -27,6 +29,14 @@ public class AvailabilityDto extends BaseEntityDto {
 
     public void setPlaceDto(PlaceDto placeDto) {
         this.placeDto = placeDto;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     @Override

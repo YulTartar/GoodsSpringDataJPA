@@ -2,6 +2,8 @@ package org.example.models;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "goods")
 public class Goods extends BaseEntity {
@@ -26,6 +28,9 @@ public class Goods extends BaseEntity {
     @Column(name = "shelf_life", length = 255)
     private int shelfLife;
 
+    @OneToMany(mappedBy = "goods")
+    Set<Availability> availabilities;
+
     public Goods(String name, String description, String OKPD, String OKVED, String typeBarcode, String barcode, int shelfLife){
         this.name = name;
         this.description = description;
@@ -35,6 +40,7 @@ public class Goods extends BaseEntity {
         this.barcode = barcode;
         this.shelfLife = shelfLife;
     }
+
 
     public Goods() {}
 

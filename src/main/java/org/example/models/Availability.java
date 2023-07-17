@@ -10,16 +10,20 @@ public class Availability extends BaseEntity {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_goods", referencedColumnName = "id", nullable=false)
     // @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    protected Goods goods;
+    Goods goods;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_place", referencedColumnName = "id", nullable=false)
     // @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    protected Place place;
+    Place place;
 
-    public Availability(Goods goods, Place place){
+    @Column(name = "count")
+    int count;
+
+    public Availability(Goods goods, Place place, int count){
         this.goods = goods;
         this.place = place;
+        this.count = count;
     }
 
     public Availability() {;}
@@ -38,6 +42,14 @@ public class Availability extends BaseEntity {
 
     public void setPlace(Place place) {
         this.place = place;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     @Override

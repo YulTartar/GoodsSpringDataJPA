@@ -4,6 +4,8 @@ import org.example.dtos.AvailabilityDto;
 import org.example.dtos.GoodsDto;
 import org.example.dtos.PlaceDto;
 import org.example.models.Availability;
+import org.example.models.Goods;
+import org.example.models.Place;
 import org.example.repositories.AvailabilityRepository;
 import org.example.services.AvailabilityService;
 import org.example.services.GoodsService;
@@ -24,15 +26,21 @@ public class AvailabilityServiceImpl implements AvailabilityService<Integer> {
 
     @Autowired
     private ModelMapper modelMapper;
-
+    /*
     @Autowired
     private PlaceService placeService;
 
     @Autowired
     private GoodsService goodsService;
-
+    */
     @Override
-    public AvailabilityDto register(int idGoods, int idPlace) {
+    public AvailabilityDto register(AvailabilityDto availability) {
+        Goods g = modelMapper.map(availability.getGoodsDto(), Goods.class);
+        System.out.println(g);
+        Place p = modelMapper.map(availability.getPlaceDto(), Place.class);
+        System.out.println(p);
+        Availability a = new Availability(g, p, availability.getCount());
+        /*
         Availability a = null;
         if (goodsService.findGoods(idGoods) != null && placeService.findPlace(idPlace) != null) {
             Optional<GoodsDto> optionalGoodsDto = goodsService.findGoods(idGoods);
@@ -46,8 +54,11 @@ public class AvailabilityServiceImpl implements AvailabilityService<Integer> {
             ;
             // throw new RuntimeException("Unsuccessful object creation class Availability.");
         }
-        System.out.println(modelMapper.map(availabilityRepository.save(a), AvailabilityDto.class));
-        return modelMapper.map(availabilityRepository.save(a), AvailabilityDto.class);
+
+         */
+
+        availabilityRepository.save(a);
+        return availability;
     }
 
     @Override
