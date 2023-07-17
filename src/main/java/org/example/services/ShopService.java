@@ -15,6 +15,8 @@ public interface ShopService<ID> {
 
     Optional<ShopDto> findShop(ID id);
 
+    List<ShopDto> findShopByAddress(String address);
+
     List<ShopDto> getAll();
 
 }

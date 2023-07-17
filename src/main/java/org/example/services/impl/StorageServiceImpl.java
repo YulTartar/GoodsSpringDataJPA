@@ -42,6 +42,10 @@ public class StorageServiceImpl implements StorageService<Integer> {
         return Optional.ofNullable(modelMapper.map(storageRepository.findById(id), StorageDto.class));
     }
 
+    public List<String> findStorageNameByCapasity(int capacity) {
+        return storageRepository.findStorageNameByCapasity(capacity);
+    }
+
     @Override
     public List<StorageDto> getAll() {
         return storageRepository.findAll().stream().map((p) -> modelMapper.map(p, StorageDto.class)).collect(Collectors.toList());

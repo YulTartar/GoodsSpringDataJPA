@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface GoodsRepository extends JpaRepository<Goods, Integer> {
+    //Optional<Object> findAllByName(String name);
 }

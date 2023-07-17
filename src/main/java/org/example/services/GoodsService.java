@@ -15,6 +15,8 @@ public interface GoodsService<ID> {
     void expel(ID id);
     Optional<GoodsDto> findGoods(ID id);
 
+    // GoodsDto findAvailabilityByGoodsName(String goodsName);
+
     List<GoodsDto> getAll();
 }
 

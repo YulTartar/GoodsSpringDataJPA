@@ -29,6 +29,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         saveData();
         // System.out.println(shopService.getAll());
         // System.out.println(shopService.findShop(1));
+        //System.out.println(goodsService.findAvailabilityByGoodsName("Яблоки Голден"));
+        // System.out.println(shopService.findShopByAddress("Московская обл., г. Одинцово, ул. Неделина, дом 47"));
+        //System.out.println(storageService.findStorageNameByCapasity(5000));
     }
 
     private void saveData() throws IOException {

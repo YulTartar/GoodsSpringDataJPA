@@ -15,6 +15,8 @@ public interface StorageService<ID> {
 
     Optional<StorageDto> findStorage(ID id);
 
+    List<String> findStorageNameByCapasity(int capacity);
+
     List<StorageDto> getAll();
 
 }
